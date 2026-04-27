@@ -8,7 +8,7 @@ router = APIRouter(
 )
 
 @router.post("/{conversation_id}/messages", response_model=MessageResponse)
-def send_new_message(conversation_id: int, message: MessageCreate):
+async def send_new_message(conversation_id: int, message: MessageCreate):
     # FastAPI valida automáticamente el request con ItemCreate
-    result = conversations_service.send_new_message(conversation_id, message)
+    result = await conversations_service.send_new_message(conversation_id, message)
     return result

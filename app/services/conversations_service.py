@@ -1,7 +1,12 @@
 from datetime import datetime
 from app.schemas.conversations import MessageCreate
+from app.services.agent_service import agent_instance
 
-def send_new_message(conversation_id: int, message: MessageCreate):
+async def send_new_message(conversation_id: int, message: MessageCreate):
+
+    answer = await agent_instance.chat(
+        message.message, session_id=f"conv-{conversation_id}"
+    )
     # aquí va tu lógica de negocio
     return {
         "dateTime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -11,6 +16,6 @@ def send_new_message(conversation_id: int, message: MessageCreate):
         "message": "",
         "data": {
             "id": conversation_id,
-            "message": 'Hola, soy el asistente de Enderman. ¿En qué puedo ayudarte?'
+            "message": answer
         }
     }

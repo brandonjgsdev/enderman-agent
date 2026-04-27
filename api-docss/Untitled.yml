@@ -1,0 +1,34 @@
+info:
+  name: Untitled
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://127.0.0.1:8000/conversations/1/messages
+  body:
+    type: json
+    data: |-
+      {
+      //   "message": "hola, que versiones hay del k4"
+      //   "message": "Hola me llamo brandon"
+      //   "message": "Mi carro tiene un problema, es un corolla 2025"
+      //   "message": "Suena un ruido raro cuando lo prendo"
+      //   "message": "Si, para este lunes a las 3pm"
+      //   "message": "Brandon Guevara, para revisar el ruido raro al prender el carro"
+      //   "message": "Si es un toyota corolla 2025"
+        
+      //   "message": "Hola, puedo llevar mi carro este lunes a las 4pm?"
+      //    "message": "Si claro es Brandon Guevara y es un corolla 2025"
+      //    "message": "Para cambio de aceite"
+      //    "message": "Si"
+      //    "message": "Vale gracias"
+         "message": "En cuanto tiempo lo tienen listo?"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
